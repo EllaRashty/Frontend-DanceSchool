@@ -128,7 +128,7 @@ const UpdateCourse = (props) => {
 
   return (
     <div>
-      <Typography className={classes.title}>Create Course</Typography>
+      <Typography className={classes.title}>Update Course</Typography>
       <h3>{currentCourse.id}</h3>
       <TextField
         className={classes.field}
@@ -229,7 +229,7 @@ const UpdateCourse = (props) => {
         color="primary"
         onClick={createItem}
       >
-        Create Course
+        Update Course
       </Button>
     </div>
   );
