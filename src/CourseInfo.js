@@ -7,6 +7,7 @@ const CourseInfo = (props) => {
   const { userId, username, avatar, role } = user;
   const { space, email } = userId;
   const { currentCourse } = props;
+  const { setCurrentLesson } = props;
   const [course, setCourse] = useState({});
 
   useEffect(() => {
@@ -44,12 +45,15 @@ const CourseInfo = (props) => {
       {/* <p>{course.itemAttributes.description}</p> */}
       <h3>Number Of Lessons: {course.numberOfLessons}</h3>
       {course.lessons?.map((lesson) => (
-        <Lesson
-          key={lesson.name}
-          name={lesson.name}
-          length={lesson.length}
-          url={lesson.url}
-        />
+        <div key={lesson.name+lesson.length}>
+          <Lesson
+            name={lesson.name}
+            length={lesson.length}
+            url={lesson.url}
+            course={course.name}
+            setCurrentLesson={setCurrentLesson}
+          />
+        </div>
       ))}
       {console.log(course)}
     </div>

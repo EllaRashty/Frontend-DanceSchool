@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./App.css";
 import Nav from "./Nav";
 import Login from "./Login";
@@ -9,13 +9,16 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import CreateCourse from "./CreateCourse";
 import CourseInfo from "./CourseInfo";
 import UpdateCourse from "./UpdateCourse";
+import LessonInfo from "./LessonInfo";
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
   const [currentCourse, setCurrentCourse] = useState(
     JSON.parse(localStorage.getItem("items"))
   );
-
+  const [currentLesson, setCurrentLesson] = useState(
+    JSON.parse(localStorage.getItem("items"))
+  );
   return (
     <Router>
       <div className="App">
@@ -37,11 +40,15 @@ function App() {
           />
           <Route
             path="/course"
-            element={<CourseInfo user={user} currentCourse={currentCourse} />}
+            element={<CourseInfo user={user} currentCourse={currentCourse} setCurrentLesson={setCurrentLesson}/>}
           />
           <Route
             path="/updatecourse"
             element={<UpdateCourse user={user} currentCourse={currentCourse} />}
+          />
+          <Route
+            path="/lesson"
+            element={<LessonInfo user={user} currentCourse={currentCourse} currentLesson={currentLesson}/>}
           />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
