@@ -150,6 +150,12 @@ nav {
   color: white;
 }
 
+.lesson-page{
+  color: rgb(156, 22, 96);
+  font-family: "Poppins", sans-serif;
+  padding: 0px;
+}
+
 .course-page{
   flex-direction: column;
   background: #fcf6fb;
@@ -170,3 +176,49 @@ nav {
   margin: 20px;
   color: white;
 }
+
+.video-teach{
+  background: rgb(19, 165, 51);
+  border: none;
+  padding: 20px 20px;
+  border-radius: 20px;
+  margin-bottom: 50px;
+  color: white;
+}
+
+.video-learn{
+  background: rgb(96, 70, 174);
+  border: none;
+  padding: 20px 20px;
+  border-radius: 20px;
+  margin-bottom: 100px;
+  color: white;
+}
+
+.login-border{
+  background: rgb(76, 39, 167);
+  padding: 10px 10px;
+  border-radius: 20px;
+  color: white;
+  margin: 25px;
+}
+
+.login-style{
+  background: rgb(230, 224, 247);
+  padding: 20px 4px;
+  border-radius: 20px;
+  color: white;
+}
+
+.signin-botton {
+  background: rgb(70, 174, 86);
+  border: none;
+  width: 120;
+  padding: 10px 28px;
+  border-radius: 5px;
+  margin: 25px;
+  margin-top: 40px;
+  font-size: medium;
+  color: white;
+}
+

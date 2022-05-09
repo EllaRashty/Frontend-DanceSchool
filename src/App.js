@@ -10,6 +10,7 @@ import CreateCourse from "./CreateCourse";
 import CourseInfo from "./CourseInfo";
 import UpdateCourse from "./UpdateCourse";
 import LessonInfo from "./LessonInfo";
+import ScorePage from "./ScorePage";
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -25,7 +26,7 @@ function App() {
         <Nav />
         <Routes>
           {/* <Route path="/" element={<Welcome />} /> */}
-          <Route path="/login" element={<Login setUser={setUser} />} />
+          {/* <Route path="/login" element={<Login setUser={setUser} />} /> */}
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route
             path="/userprofile"
@@ -50,22 +51,24 @@ function App() {
             path="/lesson"
             element={<LessonInfo user={user} currentCourse={currentCourse} currentLesson={currentLesson}/>}
           />
-          <Route path="*" element={<ErrorPage />} />
+          <Route
+            path="/score"
+            element={<ScorePage user={user}/>}
+          />
+          <Route path="*" element={<ErrorPage setUser={setUser}/>} />
         </Routes>
       </div>
-      {/* <div>
-        <UserTemp className={"user-data"} />
-      </div> */}
     </Router>
   );
 }
 
-const ErrorPage = () => {
+const ErrorPage = (props) => {
+  const { setUser } = props;
   return (
     <div>
-      <h1>Dance School</h1>
-      <h2>Welcome</h2>
-      {/* <UserTemp user={user} className={"user-data"} /> */}
+      <h1>Welcome To Dance School Online</h1>
+      <img src={'https://i.gifer.com/origin/46/460faecade416bbf19a57c19152e93d5.gif'}/>   
+      <Login setUser={setUser} />
     </div>
   );
 };
