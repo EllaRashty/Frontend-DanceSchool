@@ -28,6 +28,8 @@ const UpdateCourse = (props) => {
   const { userId, username, avatar, role } = user;
   const { space, email } = userId;
 
+  console.log(email);
+
   const [itemid, setItemid] = useState("");
   const [itemType, setItemType] = useState("");
   const [name, setName] = useState("");
@@ -47,27 +49,17 @@ const UpdateCourse = (props) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
-  const createItem = async () => {
+  const updateItem = async () => {
     const response = await fetch(
-      `http://localhost:8042/twins/items/${space}/${email}/${currentCourse.space}/${currentCourse.id}`,
+      `http://localhost:8042/twins/items/${space}/${email}/${currentCourse.id}`,
       {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          itemId: {
-            space: currentCourse.space,
-            id: currentCourse.id,
-          },
           type: itemType,
           name: name,
-          createdBy: {
-            userId: {
-              space: space,
-              email: email,
-            },
-          },
           itemAttributes: {
             typeOfDance: typeOfDance,
             workingHours: workingHours,
@@ -80,20 +72,16 @@ const UpdateCourse = (props) => {
     );
 
     if (!!response) {
-      const result = await response.json();
+      const result =  response.json();
       if (result.error) {
         alert("You can't create course!\nEnter different details!");
         return;
       }
-      localStorage.setItem("item", JSON.stringify(result));
+      localStorage.setItem("item", result);
       // setUser(result);
       console.log(result);
       navigate("/home");
     }
-  };
-
-  const handleIdChange = (e) => {
-    setItemid(e.target.value);
   };
 
   const handletypeChange = (e) => {
@@ -134,7 +122,7 @@ const UpdateCourse = (props) => {
         className={classes.field}
         id="item type"
         required
-        label="Enter type"
+        label="Enter Level"
         placeholder="tas"
         value={itemType}
         onChange={handletypeChange}
@@ -144,7 +132,7 @@ const UpdateCourse = (props) => {
         className={classes.field}
         id="name"
         required
-        label="Enter name"
+        label="Enter Course Name"
         placeholder="name"
         value={name}
         onChange={handleNameChange}
@@ -154,7 +142,7 @@ const UpdateCourse = (props) => {
         className={classes.field}
         id="typeOfDance"
         required
-        label="Enter typeOfDance"
+        label="Type Of Dance"
         placeholder="tod"
         value={typeOfDance}
         onChange={handlTypeOfDanceChange}
@@ -175,7 +163,7 @@ const UpdateCourse = (props) => {
         className={classes.field}
         id="description"
         required
-        label="description"
+        label="Description"
         placeholder="description"
         value={description}
         onChange={handleDescriptionChange}
@@ -186,7 +174,7 @@ const UpdateCourse = (props) => {
         className={classes.field}
         id="numberOfLessons"
         required
-        label="number of lessons"
+        label="Number Of Lessons"
         placeholder="nol"
         value={numberOfLessons}
         onChange={handleNumberOfLessonsChange}
@@ -227,7 +215,7 @@ const UpdateCourse = (props) => {
         // disabled={!isInputsValid()}
         variant="contained"
         color="primary"
-        onClick={createItem}
+        onClick={updateItem}
       >
         Update Course
       </Button>

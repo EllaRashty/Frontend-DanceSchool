@@ -25,9 +25,10 @@ const CreateCourse = (props) => {
   const { userId, username, avatar, role } = user;
   const { space, email } = userId;
 
-  const [itemid, setItemid] = useState("");
+  // const [itemid, setItemid] = useState("");
   const [itemType, setItemType] = useState("");
   const [name, setName] = useState("");
+  const [itemImg, setItemImg] = useState("");
 
   const [typeOfDance, setTypeOfDance] = useState("");
   const [workingHours, setWorkingHours] = useState("");
@@ -53,10 +54,6 @@ const CreateCourse = (props) => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          itemId: {
-            id: itemid,
-            space: space,
-          },
           type: itemType,
           name: name,
           createdBy: {
@@ -70,6 +67,7 @@ const CreateCourse = (props) => {
             workingHours: workingHours,
             description: description,
           },
+          img: itemImg,
           numberOfLessons: numberOfLessons,
           lessons: lessons,
         }),
@@ -89,9 +87,9 @@ const CreateCourse = (props) => {
     }
   };
 
-  const handleIdChange = (e) => {
-    setItemid(e.target.value);
-  };
+  // const handleIdChange = (e) => {
+  //   setItemid(e.target.value);
+  // };
 
   const handletypeChange = (e) => {
     setItemType(e.target.value);
@@ -103,6 +101,10 @@ const CreateCourse = (props) => {
 
   const handlTypeOfDanceChange = (e) => {
     setTypeOfDance(e.target.value);
+  };
+
+  const handleitemImgChange = (e) => {
+    setItemImg(e.target.value);
   };
 
   const handleWorkingHoursChange = (e) => {
@@ -126,7 +128,7 @@ const CreateCourse = (props) => {
   return (
     <div>
       <Typography className={classes.title}>Create Course</Typography>
-      <TextField
+      {/* <TextField
         className={classes.field}
         id="item id"
         required
@@ -135,12 +137,12 @@ const CreateCourse = (props) => {
         value={itemid}
         onChange={handleIdChange}
         // onKeyDown={handleKeyDown}
-      />
+      /> */}
       <TextField
         className={classes.field}
         id="item type"
         required
-        label="Enter type"
+        label="Enter Level"
         placeholder="tas"
         value={itemType}
         onChange={handletypeChange}
@@ -150,7 +152,7 @@ const CreateCourse = (props) => {
         className={classes.field}
         id="name"
         required
-        label="Enter name"
+        label="Enter Course Name"
         placeholder="name"
         value={name}
         onChange={handleNameChange}
@@ -160,10 +162,20 @@ const CreateCourse = (props) => {
         className={classes.field}
         id="typeOfDance"
         required
-        label="Enter typeOfDance"
+        label="Type Of Dance"
         placeholder="tod"
         value={typeOfDance}
         onChange={handlTypeOfDanceChange}
+        // onKeyDown={handleKeyDown}
+      />
+      <TextField
+        className={classes.field}
+        id="item img"
+        required
+        label="Enter IMG URL"
+        placeholder="tas"
+        value={itemImg}
+        onChange={handleitemImgChange}
         // onKeyDown={handleKeyDown}
       />
       <TextField
@@ -181,7 +193,7 @@ const CreateCourse = (props) => {
         className={classes.field}
         id="description"
         required
-        label="description"
+        label="Description"
         placeholder="description"
         value={description}
         onChange={handleDescriptionChange}
@@ -192,7 +204,7 @@ const CreateCourse = (props) => {
         className={classes.field}
         id="numberOfLessons"
         required
-        label="number of lessons"
+        label="Number Of Lessons"
         placeholder="nol"
         value={numberOfLessons}
         onChange={handleNumberOfLessonsChange}
