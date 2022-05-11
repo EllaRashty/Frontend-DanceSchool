@@ -6,46 +6,25 @@ const Course = ({
   type,
   numOflessons,
   description,
-  lessons,
   itemId,
   setCurrentCourse,
+  img,
+  createdBy,
+  currentUser,
 }) => {
-  // const updateItem = async () => {
-  //   const response = await fetch(
-  //     `http://localhost:8042/twins/items/${space}/${email}`,
-  //     {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //     }
-  //   );
-
-  //   if (!!response) {
-  //     const result = await response.json();
-  //     if (result.error) {
-  //       alert("User already exists!\nEnter different details!");
-  //       return;
-  //     }
-  //     localStorage.setItem("items", JSON.stringify(result));
-  //     // setCourses(result);
-  //     // setCurrentCourse(result);
-  //     console.log(result);
-  //   }
-  // };
-
   const navigate = useNavigate();
+
+  const isTheUserTheCreator = () => {
+    return createdBy === currentUser;
+  };
 
   return (
     <div className="course">
       <h1>{name}</h1>
       <h3>{type}</h3>
       <p>{description}</p>
-      <img src="" alt="" />
+      <img src={img} alt="course IMG" width="250" height="200" />
       <h4>Number Of Lessons: {numOflessons}</h4>{" "}
-      {lessons.map((lesson) => (
-        <li key={lesson.name}>{lesson.name}</li>
-      ))}
       <button
         className="start-button"
         onClick={() => {
@@ -56,11 +35,12 @@ const Course = ({
         Start Course
       </button>
       <button
-        className="start-button"
+        className="update-button"
+        disabled={!isTheUserTheCreator()}
+        hidden={!isTheUserTheCreator()}
         onClick={() => {
           setCurrentCourse(itemId);
           navigate("/updatecourse");
-          // 6185887d-5f79-466c-a469-38de31320a78
         }}
       >
         Update Course

@@ -125,12 +125,13 @@ nav {
   flex-wrap: wrap;
   margin: 10px;
   padding: 10px;
+
 }
 .course{
   flex-direction: column;
   background: #fcf6fb;
   padding: 20px;
-  margin: 10px ;
+  margin: 20px ;
   border-radius: 20px;
   border: #322834;
   border-style: dashed;
@@ -138,11 +139,20 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-
+  height: 570px;
+  width: 320px;
 }
 
 .start-button{
   background: rgb(167, 70, 174);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin-top: 20px;
+  color: white;
+}
+.update-button{
+  background: rgb(99, 70, 174);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;

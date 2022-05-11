@@ -75,6 +75,9 @@ const CoursesList = (props) => {
               description={course.itemAttributes.description}
               itemId={course.itemId}
               setCurrentCourse={setCurrentCourse}
+              img={course.img}
+              createdBy={course.createdBy.userId.email}
+              currentUser={email}
             />
           </div>
         ))}
