@@ -25,7 +25,6 @@ const CreateCourse = (props) => {
   const { userId, username, avatar, role } = user;
   const { space, email } = userId;
 
-  // const [itemid, setItemid] = useState("");
   const [itemType, setItemType] = useState("");
   const [name, setName] = useState("");
   const [itemImg, setItemImg] = useState("");
@@ -33,7 +32,6 @@ const CreateCourse = (props) => {
   const [typeOfDance, setTypeOfDance] = useState("");
   const [workingHours, setWorkingHours] = useState("");
   const [description, setDescription] = useState("");
-  // const [numberOfLessons, setNumberOfLessons] = useState("");
   const [lessons, setLessons] = useState([{ name: "", length: "", url: "" }]);
 
   const addLessons = () => {
@@ -55,27 +53,24 @@ const CreateCourse = (props) => {
     if (itemType === "") {
       alert("The course must have a level");
       return false;
-      if (name === "") {
-        alert("The course must have a course name");
-        return false;
-        if (typeOfDance === "") {
-          alert("The course must contain type of dance");
-          return false;
-          if (description === "") {
-            alert("The course must have a description");
-            return false;
-          }
-        }
-      }
     }
+    if (name === "") {
+      alert("The course must have a course name");
+      return false;
+    }
+    if (typeOfDance === "") {
+      alert("The course must contain type of dance");
+      return false;
+    }
+    if (description === "") {
+      alert("The course must have a description");
+      return false;
+    }
+    return true;
   };
 
   const createItem = async () => {
     if (inputsCheck()) {
-      // if (itemType !== "") {
-      //   if (name !== "") {
-      //     if (typeOfDance !== "") {
-      //       if (description !== "") {
       if (itemImg === "") {
         alert("Default course image defined");
         setItemImg(
@@ -125,19 +120,7 @@ const CreateCourse = (props) => {
       } else {
         alert("The course must contain at least one lesson");
       }
-      // }
-    } else {
-      alert("The course must have a description");
     }
-    //     } else {
-    //       alert("The course must contain type of dance");
-    //     }
-    //   } else {
-    //     alert("The course must have a course name");
-    //   }
-    // } else {
-    //   alert("The course must have a level");
-    // }
   };
 
   // const handleIdChange = (e) => {
@@ -167,10 +150,6 @@ const CreateCourse = (props) => {
   const handleDescriptionChange = (e) => {
     setDescription(e.target.value);
   };
-
-  // const handleNumberOfLessonsChange = (e) => {
-  //   setNumberOfLessons(e.target.value);
-  // };
 
   const handleLessonsChange = (event, index) => {
     let data = [...lessons];
@@ -235,7 +214,7 @@ const CreateCourse = (props) => {
         className={classes.field}
         id="workingHours"
         required
-        label="Working Hours"
+        label="Duration of the course"
         placeholder="wh"
         value={workingHours}
         onChange={handleWorkingHoursChange}
@@ -252,17 +231,6 @@ const CreateCourse = (props) => {
         onChange={handleDescriptionChange}
         // onKeyDown={handleKeyDown}
       />
-
-      {/* <TextField
-        className={classes.field}
-        id="numberOfLessons"
-        required
-        label="Number Of Lessons"
-        placeholder="nol"
-        value={numberOfLessons}
-        onChange={handleNumberOfLessonsChange}
-        // onKeyDown={handleKeyDown}
-      /> */}
 
       <div>
         {lessons.map((form, index) => {
