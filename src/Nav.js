@@ -1,50 +1,70 @@
 import React from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
+import home from "./svgs/home.svg";
+import profile from "./svgs/profile.svg";
+import courseIcon from "./svgs/coursesIcon.svg";
+import addCourse from "./svgs/addCourse.svg";
 
-function Nav() {
+function Nav(props) {
   const navStyle = {
     color: "white",
   };
 
+  const { user } = props;
+
+  const isManager = () => {
+    if (!userConnect() && user.role === "MANAGER") {
+      return true;
+    }
+    return false;
+  };
+
+  const userConnect = () => {
+    if (user === null) {
+      return true;
+    }
+    return false;
+  };
+
+  const userName = () => {
+    if (!userConnect()) {
+      return user.username;
+    }
+    return "user";
+  };
+
   return (
-    <nav>
+    <nav className="navbar">
       <h3></h3>
-      <ul className="nav-links">
-        <Link style={navStyle} to="/" className="nav-link">
-          <li>Home</li>
+      <div className="nav-links">
+        <Link style={navStyle} to="/" className="nav-home">
+          <img src={home} alt="course IMG" width="50" height="50"></img>
+          <li style={{ padding: 20 }}> Hello , {userName()}</li>
         </Link>
-        <Link style={navStyle} to="/login" className="nav-link">
-          <li>Login</li>
-        </Link>
-        <Link style={navStyle} to="/signin" className="nav-link">
-          <li>Sign In</li>
-        </Link>
-        <Link style={navStyle} to="/userprofile" className="nav-link">
-          <li>User Profile</li>
-        </Link>
+
         <Link style={navStyle} to="/createcourse" className="nav-link">
-          <li>Create Course</li>
+          <img
+            hidden={!isManager()}
+            src={addCourse}
+            alt="course IMG"
+            width="50"
+            height="50"
+          ></img>
         </Link>
         <Link style={navStyle} to="/courseslist" className="nav-link">
-          <li>Courses List</li>
+          <img src={courseIcon} alt="course IMG" width="50" height="50"></img>
         </Link>
-        <Link style={navStyle} to="/course" className="nav-link">
-          <li>Course</li>
+        <Link style={navStyle} to="/userprofile" className="nav-link">
+          <img
+            hidden={userConnect()}
+            src={profile}
+            alt="course IMG"
+            width="50"
+            height="50"
+          ></img>
         </Link>
-        <Link style={navStyle} to="/updatecourse" className="nav-link">
-          <li>Update Course</li>
-        </Link>
-        {/* <Link style={navStyle} to="/wordchoosing">
-          <li>word choosing</li>
-        </Link>
-        <Link style={navStyle} to="/waitingview">
-          <li>waiting</li>
-        </Link>
-        <Link style={navStyle} to="/guessingpage">
-          <li>guessing page</li>
-        </Link> */}
-      </ul>
+      </div>
     </nav>
   );
 }

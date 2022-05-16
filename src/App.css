@@ -38,13 +38,19 @@ nav {
   list-style: none;
 }
 
+.nav-home{
+  width: 100%;
+  padding: 10%;
+  display: flex;
+  align-items: center;
 
+}
 .nav-links {
   width: 100%;
   padding: 0;
   display: flex;
   flex-direction: center;
-  justify-content: space-around;
+  justify-content:flex-end;
   align-items: center;
   list-style: none;
 }
@@ -52,11 +58,10 @@ nav {
 
 .nav-link {
   width: 20%;
-  margin: 10mm;
   display: flex;
   flex-direction: inherit;
   justify-content: space-around;
-  align-items: center;
+  align-items: flex-end;
   list-style: none;
 }
 
@@ -232,3 +237,19 @@ nav {
   color: white;
 }
 
+.score-border{
+  flex-direction: column;
+  background: #fcf6fb;
+  padding: 20px;
+  margin: 20px ;
+  border-radius: 20px;
+  border: #322834;
+  border-style: dashed;
+  box-shadow: 0px 5px 10px rgb(71, 71, 71);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 190px;
+  /* font-size: large; */
+  width: 300px;
+}
