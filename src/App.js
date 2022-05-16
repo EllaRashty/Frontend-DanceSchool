@@ -23,10 +23,8 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <Nav />
+        <Nav user={user} />
         <Routes>
-          {/* <Route path="/" element={<Welcome />} /> */}
-          {/* <Route path="/login" element={<Login setUser={setUser} />} /> */}
           <Route path="/signin" element={<SignIn setUser={setUser} />} />
           <Route
             path="/userprofile"
