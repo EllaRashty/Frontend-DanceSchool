@@ -41,16 +41,19 @@ const CourseInfo = (props) => {
   return (
     <div className="course-page">
       <h1>{course.name}</h1>
-      <h2>{course.type}</h2>
+      <h3>For: {course.type}</h3>
+      {/* <h3>Style: {course.itemAttributes.typeOfDance}</h3> */}
       {/* <p>{course.itemAttributes.description}</p> */}
-      <h3>Number Of Lessons: {course.numberOfLessons}</h3>
+      <h4>Number Of Lessons: {course.numberOfLessons}</h4>
       {course.lessons?.map((lesson) => (
-        <div key={lesson.name+lesson.length}>
+        <div key={lesson.name + course.itemId.id}>
           <Lesson
             name={lesson.name}
             length={lesson.length}
             url={lesson.url}
             course={course.name}
+            student={course.itemAttributes.student}
+            start={course.itemAttributes.start}
             setCurrentLesson={setCurrentLesson}
           />
         </div>

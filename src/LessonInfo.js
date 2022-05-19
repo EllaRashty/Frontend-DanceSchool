@@ -15,15 +15,30 @@ const LessonInfo = (props) => {
         width="880px"
         height="480px"
         controls
-        url="https://youtu.be/wV8cDpJa2f4"
+        url={currentLesson.url}
+        // url="https://www.youtube.com/watch?v=Ohukhuev5xo&ab_channel=FrancoRaffo"
+        volume={0}
+        playing={true}
         onEnded={() => navigate("/score")}
+        config={{
+          youtube: {
+            playerVars: {
+              start: currentLesson.start,
+            },
+          },
+        }}
       />
       <ReactPlayer
         className="video-learn"
         width="880px"
         height="480px"
         controls
-        url="https://youtu.be/obtDeYM_kug"
+        volume={0}
+        playing={true}
+        url={currentLesson.student}
+        // url="https://www.youtube.com/watch?v=uI0PFxZ7TNA&ab_channel=littlesiha"
+        // url="https://youtu.be/gcKj5LGN9rA"
+        // loop={true}
       />
       {console.log(currentLesson.name)}
       {console.log(currentLesson.url)}
