@@ -2,13 +2,16 @@ import React from "react";
 import "./App.css";
 import { Link } from "react-router-dom";
 import home from "./svgs/home.svg";
-import profile from "./svgs/profile.svg";
 import courseIcon from "./svgs/coursesIcon.svg";
 import addCourse from "./svgs/addCourse.svg";
+import { getAvatarByRole } from "./UserServices";
 
 function Nav(props) {
   const navStyle = {
     color: "white",
+    fontSize: 18,
+    fontWeight: 200,
+    textDecoration: "none",
   };
 
   const { user } = props;
@@ -34,13 +37,25 @@ function Nav(props) {
     return "user";
   };
 
+  const getAvatar = () => {
+    if (!userConnect()) {
+      return getAvatarByRole(user.role);
+    }
+  };
+
   return (
     <nav className="navbar">
       <h3></h3>
       <div className="nav-links">
         <Link style={navStyle} to="/" className="nav-home">
-          <img src={home} alt="course IMG" width="50" height="50"></img>
-          <li style={{ padding: 20 }}> Hello , {userName()}</li>
+          <img
+            style={{ marginTop: 5 }}
+            src={home}
+            alt="course IMG"
+            width="150"
+            height="150"
+          ></img>
+          <li style={{ marginBottom: 11 }}> Hello , {userName()}</li>
         </Link>
 
         <Link style={navStyle} to="/createcourse" className="nav-link">
@@ -53,12 +68,19 @@ function Nav(props) {
           ></img>
         </Link>
         <Link style={navStyle} to="/courseslist" className="nav-link">
-          <img src={courseIcon} alt="course IMG" width="50" height="50"></img>
+          <img
+            style={{ marginTop: 9 }}
+            hidden={userConnect()}
+            src={courseIcon}
+            alt="course IMG"
+            width="50"
+            height="50"
+          ></img>
         </Link>
         <Link style={navStyle} to="/userprofile" className="nav-link">
           <img
             hidden={userConnect()}
-            src={profile}
+            src={getAvatar()}
             alt="course IMG"
             width="50"
             height="50"

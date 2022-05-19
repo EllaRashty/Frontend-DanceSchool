@@ -11,6 +11,7 @@ import CourseInfo from "./CourseInfo";
 import UpdateCourse from "./UpdateCourse";
 import LessonInfo from "./LessonInfo";
 import ScorePage from "./ScorePage";
+import home from "./svgs/home.svg";
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -39,7 +40,13 @@ function App() {
           />
           <Route
             path="/course"
-            element={<CourseInfo user={user} currentCourse={currentCourse} setCurrentLesson={setCurrentLesson}/>}
+            element={
+              <CourseInfo
+                user={user}
+                currentCourse={currentCourse}
+                setCurrentLesson={setCurrentLesson}
+              />
+            }
           />
           <Route
             path="/updatecourse"
@@ -47,13 +54,16 @@ function App() {
           />
           <Route
             path="/lesson"
-            element={<LessonInfo user={user} currentCourse={currentCourse} currentLesson={currentLesson}/>}
+            element={
+              <LessonInfo
+                user={user}
+                currentCourse={currentCourse}
+                currentLesson={currentLesson}
+              />
+            }
           />
-          <Route
-            path="/score"
-            element={<ScorePage user={user}/>}
-          />
-          <Route path="*" element={<ErrorPage setUser={setUser}/>} />
+          <Route path="/score" element={<ScorePage user={user} />} />
+          <Route path="*" element={<ErrorPage setUser={setUser} />} />
         </Routes>
       </div>
     </Router>
@@ -64,8 +74,7 @@ const ErrorPage = (props) => {
   const { setUser } = props;
   return (
     <div>
-      <h1>Welcome To Dance School Online</h1>
-      <img src={'https://i.gifer.com/origin/46/460faecade416bbf19a57c19152e93d5.gif'}/>   
+      <img src={home} alt="course IMG" width="600" height="400"></img>
       <Login setUser={setUser} />
     </div>
   );

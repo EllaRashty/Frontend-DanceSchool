@@ -51,7 +51,7 @@ const CoursesList = (props) => {
   };
 
   return (
-    <div>
+    <div className="courses-page">
       <form onSubmit={getSearch} className="search-form">
         <input
           className="search-bar"

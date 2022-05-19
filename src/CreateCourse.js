@@ -48,79 +48,79 @@ const CreateCourse = (props) => {
   const navigate = useNavigate();
   const classes = useStyles();
 
-  const inputsCheck = () => {
+  const isInputsValid = () => {
     console.log("here");
     if (itemType === "") {
-      alert("The course must have a level");
+      // alert("The course must have a level");
       return false;
     }
     if (name === "") {
-      alert("The course must have a course name");
+      // alert("The course must have a course name");
       return false;
     }
     if (typeOfDance === "") {
-      alert("The course must contain type of dance");
+      // alert("The course must contain type of dance");
       return false;
     }
     if (description === "") {
-      alert("The course must have a description");
+      // alert("The course must have a description");
       return false;
     }
     return true;
   };
 
   const createItem = async () => {
-    if (inputsCheck()) {
-      if (itemImg === "") {
-        alert("Default course image defined");
-        setItemImg(
-          "https://i.gifer.com/origin/46/460faecade416bbf19a57c19152e93d5.gif         "
-        );
-      }
-      if (lessons.length !== 0) {
-        const response = await fetch(
-          `http://localhost:8042/twins/items/${space}/${email}`,
-          {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              type: itemType,
-              name: name,
-              createdBy: {
-                userId: {
-                  space: space,
-                  email: email,
-                },
-              },
-              itemAttributes: {
-                typeOfDance: typeOfDance,
-                workingHours: workingHours,
-                description: description,
-              },
-              img: itemImg,
-              numberOfLessons: lessons.length,
-              lessons: lessons,
-            }),
-          }
-        );
-
-        if (!!response) {
-          const result = await response.json();
-          if (result.error) {
-            alert("The lesson must contain a link!");
-            return;
-          }
-          localStorage.setItem("item", JSON.stringify(result));
-          // setUser(result);
-          console.log(result);
-          navigate("/home");
-        }
-      } else {
-        alert("The course must contain at least one lesson");
-      }
+    // if (isInputsValid()) {
+    if (itemImg === "") {
+      alert("Default course image defined");
+      setItemImg(
+        "https://i.gifer.com/origin/46/460faecade416bbf19a57c19152e93d5.gif         "
+      );
     }
+    if (lessons.length !== 0) {
+      const response = await fetch(
+        `http://localhost:8042/twins/items/${space}/${email}`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            type: itemType,
+            name: name,
+            createdBy: {
+              userId: {
+                space: space,
+                email: email,
+              },
+            },
+            itemAttributes: {
+              typeOfDance: typeOfDance,
+              workingHours: workingHours,
+              description: description,
+            },
+            img: itemImg,
+            numberOfLessons: lessons.length,
+            lessons: lessons,
+          }),
+        }
+      );
+
+      if (!!response) {
+        const result = await response.json();
+        if (result.error) {
+          alert("The lesson must contain a link!");
+          return;
+        }
+        localStorage.setItem("item", JSON.stringify(result));
+        // setUser(result);
+        console.log(result);
+        navigate("/home");
+      }
+    } else {
+      alert("The course must contain at least one lesson");
+    }
+    // }
   };
 
   // const handleIdChange = (e) => {
@@ -158,7 +158,7 @@ const CreateCourse = (props) => {
   };
 
   return (
-    <div>
+    <div className="create-cours-page">
       <Typography className={classes.title}>Create Course</Typography>
       {/* <TextField
         className={classes.field}
@@ -241,18 +241,21 @@ const CreateCourse = (props) => {
                 placeholder="Name"
                 onChange={(event) => handleLessonsChange(event, index)}
                 value={form.name}
+                style={{ margin: 5, borderRadius: 10, padding: 9, width: 160 }}
               />
               <input
                 name="length"
                 placeholder="length"
                 onChange={(event) => handleLessonsChange(event, index)}
                 value={form.length}
+                style={{ margin: 5, borderRadius: 10, padding: 9, width: 80 }}
               />
               <input
                 name="url"
                 placeholder="url"
                 onChange={(event) => handleLessonsChange(event, index)}
                 value={form.url}
+                style={{ margin: 5, borderRadius: 10, padding: 9, width: 230 }}
               />
             </div>
           );
@@ -261,11 +264,11 @@ const CreateCourse = (props) => {
       <button className="add-button" onClick={addLessons}>
         Add Lesson..
       </button>
-      <button className="add-button" onClick={removeLessons}>
+      <button className="remove-button" onClick={removeLessons}>
         Remove Lessons..
       </button>
       <Button
-        // disabled={!isInputsValid()}
+        disabled={!isInputsValid()}
         variant="contained"
         color="primary"
         onClick={createItem}

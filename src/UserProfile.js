@@ -46,7 +46,7 @@ const UserProfile = (props) => {
   };
 
   return (
-    <div id="user-profile-component">
+    <div id="user-profile-component" className="user-profile-page">
       <Typography className={classes.header} variant="h4">
         User Profile
       </Typography>

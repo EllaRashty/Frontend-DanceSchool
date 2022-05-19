@@ -8,10 +8,22 @@
 }
 
 body {
-  background-image: linear-gradient(120deg, #fcdaf4 0%, #b3adb3 100%);
-  color: rgb(156, 22, 96);
+  /* background-image: linear-gradient(120deg, #fcdaf4 0%, #b3adb3 100%); */
+  background-image: url("https://i.pinimg.com/originals/43/bf/5e/43bf5e3506b086e6a7d8238e46749171.gif");
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: 500px;
+  background-position-x: center;
+  background-position-y: center;
+  background-size: cover;
+  background-blend-mode: soft-light;
+  color: rgb(92, 67, 177);
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
+  /* justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center; */
 }
 
 nav {
@@ -19,9 +31,45 @@ nav {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 20mm;
-  margin-bottom: 10mm;
-  background: rgba(195, 114, 155, 0.952);
+  height: 22mm;
+  /* margin-bottom: 10mm; */
+  /* background: rgba(195, 114, 155, 0.952); */
+  background-image: linear-gradient(120deg, #2e284e 0% 200%);
+  overflow: hidden;
+  /* order: menu-outer; */
+}
+
+.user-profile-page{
+  background-image: linear-gradient(120deg, #e1c6fb 0%, #cac8c4 100%);
+  padding: 60px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: #322834;
+  border-style: dashed;
+}
+
+.courses-page{
+  background-image: linear-gradient(180deg, #a59bd8 0%, #cac8c4 40%);
+  background-size: cover;
+  border-radius: 10px;
+  height: 100%;
+  justify-content: space-around;
+  padding: 3%;
+  border-top-color: #282c3466;
+  border-style: inset;
+}
+
+.create-cours-page{
+  background-image: linear-gradient(180deg, #a59bd8 0%, #cac8c4 40%);
+  background-size: cover;
+  border-radius: 10px;
+  justify-content: space-around;
+  padding: 0;
+  padding-top: 60px;
+  padding-bottom: 30px;
+  margin-top: 30px;
+  border: #322834;
+  border-style: dashed;
 }
 
 .user-data {
@@ -39,11 +87,13 @@ nav {
 }
 
 .nav-home{
-  width: 100%;
-  padding: 10%;
+  /* margin-right: 20px; */
+  margin-top: 16px;
   display: flex;
   align-items: center;
-
+  overflow: hidden;
+  flex: 20;
+  padding-left: 10px;
 }
 .nav-links {
   width: 100%;
@@ -53,16 +103,19 @@ nav {
   justify-content:flex-end;
   align-items: center;
   list-style: none;
+  overflow: hidden;
+
 }
 
 
 .nav-link {
-  width: 20%;
+  width: 8%;
   display: flex;
   flex-direction: inherit;
   justify-content: space-around;
   align-items: flex-end;
   list-style: none;
+  margin: 15px;
 }
 
 .App-logo {
@@ -116,7 +169,7 @@ nav {
 }
 
 .search-button{
-  background: rgb(104, 70, 174);
+  background: rgb(220, 139, 82);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
@@ -134,7 +187,7 @@ nav {
 }
 .course{
   flex-direction: column;
-  background: #fcf6fb;
+  background: #ece6ec;
   padding: 20px;
   margin: 20px ;
   border-radius: 20px;
@@ -149,7 +202,7 @@ nav {
 }
 
 .start-button{
-  background: rgb(167, 70, 174);
+  background: rgb(220, 119, 82);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
@@ -168,23 +221,41 @@ nav {
 .lesson-page{
   color: rgb(156, 22, 96);
   font-family: "Poppins", sans-serif;
-  padding: 0px;
+  background-image: linear-gradient(120deg, #e1c6fb 0%, #cac8c4 100%);
+  padding: 60px;
+  padding-right: 150px;
+  padding-left: 150px;
+  padding-bottom: 0px;
+  border-radius: 10px;
+  margin-top: 30px;
+  border: #322834;
+  border-style: dashed;
 }
 
 .course-page{
   flex-direction: column;
-  background: #fcf6fb;
-  border-radius: 20px;
-  border: #322834;
-  border-style: dashed;
   box-shadow: 0px 5px 10px rgb(71, 71, 71);
-  padding: 10%;
   margin-bottom: 19px;
   display: flex;
+  background-image: linear-gradient(120deg, #e1c6fb 0%, #cac8c4 100%);
+  padding: 150px;
+  border-radius: 10px;
+  margin-top: 60px;
+  border: #322834;
+  border-style: dashed;
 }
 
 .add-button{
-  background: rgb(167, 70, 174);
+  background: rgb(25, 129, 44);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  margin: 20px;
+  color: white;
+}
+
+.remove-button{
+  background: rgb(174, 98, 70);
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
@@ -193,7 +264,7 @@ nav {
 }
 
 .video-teach{
-  background: rgb(182, 78, 185);
+  background: rgb(99, 70, 174);
   border: none;
   padding: 20px 20px;
   border-radius: 20px;
@@ -211,7 +282,7 @@ nav {
 }
 
 .login-border{
-  background: rgb(167, 165, 172);
+  background: rgb(146, 145, 147);
   padding: 10px 10px;
   border-radius: 20px;
   color: white;
