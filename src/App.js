@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
 import Nav from "./Nav";
-import Login from "./Login";
 import SignIn from "./SignIn";
 import UserProfile from "./UserProfile";
 import CoursesList from "./CoursesList";
@@ -11,7 +10,8 @@ import CourseInfo from "./CourseInfo";
 import UpdateCourse from "./UpdateCourse";
 import LessonInfo from "./LessonInfo";
 import ScorePage from "./ScorePage";
-import home from "./svgs/home.svg";
+import TrialLesson from "./TrialLesson";
+import HomePage from "./HomePage";
 
 function App() {
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
@@ -63,19 +63,23 @@ function App() {
             }
           />
           <Route path="/score" element={<ScorePage user={user} />} />
-          <Route path="*" element={<ErrorPage setUser={setUser} />} />
+          <Route path="/triallesson" element={<TrialLesson />} />
+          <Route path="/" element={<HomePage setUser={setUser} />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </div>
     </Router>
   );
 }
 
-const ErrorPage = (props) => {
-  const { setUser } = props;
+const ErrorPage = () => {
   return (
     <div>
-      <img src={home} alt="course IMG" width="600" height="400"></img>
-      <Login setUser={setUser} />
+      <h2>
+        <br />
+        <br />
+        Page Not Exist
+      </h2>
     </div>
   );
 };

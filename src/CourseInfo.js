@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router-dom";
 import Lesson from "./Lesson";
 
 const CourseInfo = (props) => {
@@ -42,8 +41,6 @@ const CourseInfo = (props) => {
     <div className="course-page">
       <h1>{course.name}</h1>
       <h3>For: {course.type}</h3>
-      {/* <h3>Style: {course.itemAttributes.typeOfDance}</h3> */}
-      {/* <p>{course.itemAttributes.description}</p> */}
       <h4>Number Of Lessons: {course.numberOfLessons}</h4>
       {course.lessons?.map((lesson) => (
         <div key={lesson.name + course.itemId.id}>

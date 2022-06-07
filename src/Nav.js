@@ -9,8 +9,8 @@ import { getAvatarByRole } from "./UserServices";
 function Nav(props) {
   const navStyle = {
     color: "white",
-    fontSize: 18,
-    fontWeight: 200,
+    fontSize: 15,
+    fontWeight: 100,
     textDecoration: "none",
   };
 
@@ -52,19 +52,18 @@ function Nav(props) {
             style={{ marginTop: 5 }}
             src={home}
             alt="course IMG"
-            width="150"
-            height="150"
+            width="90"
+            height="90"
           ></img>
           <li style={{ marginBottom: 11 }}> Hello , {userName()}</li>
         </Link>
-
         <Link style={navStyle} to="/createcourse" className="nav-link">
           <img
             hidden={!isManager()}
             src={addCourse}
             alt="course IMG"
-            width="50"
-            height="50"
+            width="45"
+            height="45"
           ></img>
         </Link>
         <Link style={navStyle} to="/courseslist" className="nav-link">
@@ -73,8 +72,8 @@ function Nav(props) {
             hidden={userConnect()}
             src={courseIcon}
             alt="course IMG"
-            width="50"
-            height="50"
+            width="45"
+            height="45"
           ></img>
         </Link>
         <Link style={navStyle} to="/userprofile" className="nav-link">
@@ -82,8 +81,8 @@ function Nav(props) {
             hidden={userConnect()}
             src={getAvatar()}
             alt="course IMG"
-            width="50"
-            height="50"
+            width="45"
+            height="45"
           ></img>
         </Link>
       </div>

@@ -8,7 +8,6 @@
 }
 
 body {
-  /* background-image: linear-gradient(120deg, #fcdaf4 0%, #b3adb3 100%); */
   background-image: url("https://i.pinimg.com/originals/43/bf/5e/43bf5e3506b086e6a7d8238e46749171.gif");
   background-color: #cccccc;
   background-repeat: no-repeat;
@@ -20,10 +19,6 @@ body {
   color: rgb(92, 67, 177);
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
-  /* justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  text-align: center; */
 }
 
 nav {
@@ -31,28 +26,25 @@ nav {
   justify-content: space-around;
   align-items: center;
   width: 100%;
-  height: 22mm;
-  /* margin-bottom: 10mm; */
-  /* background: rgba(195, 114, 155, 0.952); */
+  height: 13mm;
   background-image: linear-gradient(120deg, #2e284e 0% 200%);
   overflow: hidden;
-  /* order: menu-outer; */
 }
 
 .user-profile-page{
   background-image: linear-gradient(120deg, #e1c6fb 0%, #cac8c4 100%);
-  padding: 60px;
+  padding: 35px;
   border-radius: 10px;
-  margin-top: 30px;
+  margin-top: 15px;
   border: #322834;
   border-style: dashed;
+  padding-bottom: 10px;
 }
 
 .courses-page{
   background-image: linear-gradient(180deg, #a59bd8 0%, #cac8c4 40%);
   background-size: cover;
   border-radius: 10px;
-  height: 100%;
   justify-content: space-around;
   padding: 3%;
   border-top-color: #282c3466;
@@ -61,13 +53,12 @@ nav {
 
 .create-cours-page{
   background-image: linear-gradient(180deg, #a59bd8 0%, #cac8c4 40%);
-  background-size: cover;
   border-radius: 10px;
   justify-content: space-around;
   padding: 0;
-  padding-top: 60px;
-  padding-bottom: 30px;
-  margin-top: 30px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-top: 15px;
   border: #322834;
   border-style: dashed;
 }
@@ -88,7 +79,7 @@ nav {
 
 .nav-home{
   /* margin-right: 20px; */
-  margin-top: 16px;
+  margin-top: 11px;
   display: flex;
   align-items: center;
   overflow: hidden;
@@ -155,10 +146,11 @@ nav {
 
 
 .search-form{
-  min-height: 10hv;
+  min-height: 5hv;
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
 }
 
 .search-bar{
@@ -183,13 +175,12 @@ nav {
   flex-wrap: wrap;
   margin: 10px;
   padding: 10px;
-
 }
 .course{
   flex-direction: column;
   background: #ece6ec;
-  padding: 20px;
-  margin: 20px ;
+  padding: 10px;
+  margin: 10px ;
   border-radius: 20px;
   border: #322834;
   border-style: dashed;
@@ -197,24 +188,55 @@ nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 570px;
-  width: 320px;
+  height: 510px;
+  width: 300px;
+}
+
+.home-page{
+  flex-direction: column;
+  align-items: center;
+  display: flex;
+  text-align: center;
+  justify-content: space-between;
+  scroll-behavior: smooth;
+  padding-bottom: 0;
+}
+
+.top-home-page{
+  padding: 0;
+  display: flex;
+  align-items: center;
+  flex: 1;
+  flex-direction: row;
+  border: 1px solid #17bf9d44;
+}
+
+.trial-lesson{
+  background: rgb(220, 119, 82);
+  border: none;
+  width: 110px;
+  padding: 10px 5px;
+  color: white;
+  margin-top: 6px;
+  margin-left: auto ;
+  flex: 1;
+  align-items: center;
+
 }
 
 .start-button{
   background: rgb(220, 119, 82);
   border: none;
-  padding: 10px 20px;
+  padding: 8px 17px;
   border-radius: 20px;
-  margin-top: 20px;
   color: white;
 }
 .update-button{
   background: rgb(99, 70, 174);
   border: none;
-  padding: 10px 20px;
+  padding: 8px 17px;
   border-radius: 20px;
-  margin-top: 20px;
+  margin-top: 5px;
   color: white;
 }
 
@@ -282,7 +304,7 @@ nav {
 }
 
 .login-border{
-  background: rgb(146, 145, 147);
+  background: rgb(73, 28, 118);
   padding: 10px 10px;
   border-radius: 20px;
   color: white;
@@ -290,10 +312,10 @@ nav {
 }
 
 .login-style{
-  background: rgb(246, 241, 246);
+  background: rgb(248, 245, 239);
   padding: 20px 4px;
   border-radius: 20px;
-  color: white;
+  color: rgb(247, 243, 243);
 }
 
 .signin-botton {

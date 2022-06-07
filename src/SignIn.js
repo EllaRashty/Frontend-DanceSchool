@@ -112,7 +112,7 @@ const SignIn = (props) => {
   };
 
   return (
-    <div id="sign-in-component">
+    <div id="sign-in-component" className="user-profile-page">
       <div id="fields-wrapper">
         <Typography className={classes.title}>Create your account</Typography>
 

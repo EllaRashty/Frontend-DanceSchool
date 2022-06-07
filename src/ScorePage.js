@@ -5,20 +5,13 @@ import ProgressBar from "./ProgressBar";
 const ScorePage = (props) => {
   const navigate = useNavigate();
   const [value, setValue] = useState(0);
+  const [tryAgain, setTryAgain] = useState(true);
   useEffect(() => {
-    // const interval = setInterval(() => {
-    //   setValue((oldValue) => {
-    //     const newValue = oldValue + 10;
-
-    //     if (newValue === 100) {
-    //       clearInterval(interval);
-    //     }
-
-    //     return newValue;
-    //   });
-    // }, 1000);
-    const newValue = Math.ceil(Math.floor(Math.random() * 80) + 10);
+    const newValue = Math.trunc(Math.round(Math.random() * 80) + 10);
     setValue(newValue);
+    if (newValue < 50) {
+      setTryAgain(false);
+    }
   }, []);
 
   return (
@@ -49,6 +42,14 @@ const ScorePage = (props) => {
           }}
         >
           Courses List
+        </button>
+        <button
+          className="update-button"
+          style={{margin:6}}
+          hidden={tryAgain}
+          onClick={() => navigate(-1)}
+        >
+          Try Again
         </button>
       </div>
     </div>

@@ -22,15 +22,11 @@ const useStyles = makeStyles((theme) => ({
 
 const UpdateCourse = (props) => {
   const { currentCourse } = props;
-  console.log(currentCourse);
 
   const { user } = props;
   const { userId, username, avatar, role } = user;
   const { space, email } = userId;
 
-  console.log(email);
-
-  const [itemid, setItemid] = useState("");
   const [itemType, setItemType] = useState("");
   const [name, setName] = useState("");
 
@@ -44,6 +40,10 @@ const UpdateCourse = (props) => {
     let newLesson = { name: "", length: "", url: "" };
 
     setLessons([...lessons, newLesson]);
+  };
+  const removeLessons = () => {
+    lessons.pop();
+    setLessons([...lessons]);
   };
 
   const navigate = useNavigate();
@@ -78,7 +78,6 @@ const UpdateCourse = (props) => {
         return;
       }
       localStorage.setItem("item", result);
-      // setUser(result);
       console.log(result);
       navigate("/home");
     }
@@ -115,9 +114,8 @@ const UpdateCourse = (props) => {
   };
 
   return (
-    <div>
+    <div className="create-cours-page">
       <Typography className={classes.title}>Update Course</Typography>
-      <h3>{currentCourse.id}</h3>
       <TextField
         className={classes.field}
         id="item type"
@@ -126,7 +124,6 @@ const UpdateCourse = (props) => {
         placeholder="tas"
         value={itemType}
         onChange={handletypeChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -136,7 +133,6 @@ const UpdateCourse = (props) => {
         placeholder="name"
         value={name}
         onChange={handleNameChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -146,7 +142,6 @@ const UpdateCourse = (props) => {
         placeholder="tod"
         value={typeOfDance}
         onChange={handlTypeOfDanceChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -156,7 +151,6 @@ const UpdateCourse = (props) => {
         placeholder="wh"
         value={workingHours}
         onChange={handleWorkingHoursChange}
-        // onKeyDown={handleKeyDown}
       />
 
       <TextField
@@ -167,7 +161,6 @@ const UpdateCourse = (props) => {
         placeholder="description"
         value={description}
         onChange={handleDescriptionChange}
-        // onKeyDown={handleKeyDown}
       />
 
       <TextField
@@ -178,7 +171,6 @@ const UpdateCourse = (props) => {
         placeholder="nol"
         value={numberOfLessons}
         onChange={handleNumberOfLessonsChange}
-        // onKeyDown={handleKeyDown}
       />
 
       <div>
@@ -210,9 +202,10 @@ const UpdateCourse = (props) => {
       <button className="add-button" onClick={addLessons}>
         Add Lesson..
       </button>
-
+          <button className="remove-button" onClick={removeLessons}>
+        Remove Lessons..
+      </button>
       <Button
-        // disabled={!isInputsValid()}
         variant="contained"
         color="primary"
         onClick={updateItem}

@@ -42,7 +42,7 @@ const UserProfile = (props) => {
   const logout = () => {
     localStorage.setItem("user", null);
     setUser(null);
-    navigate("/home");
+    navigate("/");
   };
 
   return (
@@ -92,41 +92,3 @@ const UserProfile = (props) => {
 };
 
 export default UserProfile;
-
-// const UserTemp = (props) => {
-//   const [user, setUser] = useState([]);
-//   // const [user, setUser] = useState(JSON.parse(localStorage.getItem("user")));
-
-//   // const userEmail = "eli@gmail.com";
-//   const fetchUser = () => {
-//     //   axios
-//     //     .get(`http://localhost:8042/twins/users/login/DanceSchool/${userEmail}`)
-//     //     .then((res) => {
-//     // console.log(res);
-//     setUser(props.user.user);
-//     console.log(props.user);
-//     //     });
-//   };
-//   useEffect(() => {
-//     fetchUser();
-//   }, []);
-//   console.log(user);
-//   return (
-//     <div key={user.userId} className="user-data">
-//       <h2>avatar: {user.avatar}</h2>
-//       <h3>user name: {user.username}</h3>
-//       <h3>role: {user.role}</h3>
-//     </div>
-//   );
-// };
-
-// const UserProfile = (user) => {
-//   return (
-//     <div>
-//       {/* <h1>Error</h1> */}
-//       <UserTemp user={user} className={"user-data"} />
-//     </div>
-//   );
-// };
-
-// export default UserProfile;

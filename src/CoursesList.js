@@ -35,7 +35,6 @@ const CoursesList = (props) => {
       }
       localStorage.setItem("items", JSON.stringify(result));
       setCourses(result);
-      // setCurrentCourse(result);
       console.log(result);
     }
   };

@@ -12,12 +12,9 @@ import {
   DialogTitle,
   Typography,
 } from "@material-ui/core";
-
 import CardComponent from "./CardComponent";
 import CreateServiceFormComponent from "./CreateServiceFormComponent";
 import { Search } from "@material-ui/icons";
-
-// import "./cards-list-component.scss";
 
 const SIZE = 6;
 const useStyles = makeStyles((theme) => ({
@@ -39,8 +36,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const SearchPage = (props) => {
-  //   const { user } = props;
-
   const { user, type } = props;
   const [data, setData] = useState([]);
   const [page, setPage] = useState(0);
@@ -113,9 +108,6 @@ const SearchPage = (props) => {
         operationAttributes: { page, size: SIZE, review, rating },
       }),
     });
-
-    // const result = await response.json();
-
     setIsReviewDialogOpen(false);
   };
 

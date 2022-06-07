@@ -7,8 +7,8 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 24,
   },
   field: {
-    width: "80%",
-    margin: 20,
+    width: "60%",
+    margin: 10,
   },
   roleStyle: {},
   avatar: {
@@ -49,7 +49,6 @@ const CreateCourse = (props) => {
   const classes = useStyles();
 
   const isInputsValid = () => {
-    console.log("here");
     if (itemType === "") {
       // alert("The course must have a level");
       return false;
@@ -70,7 +69,6 @@ const CreateCourse = (props) => {
   };
 
   const createItem = async () => {
-    // if (isInputsValid()) {
     if (itemImg === "") {
       alert("Default course image defined");
       setItemImg(
@@ -113,19 +111,13 @@ const CreateCourse = (props) => {
           return;
         }
         localStorage.setItem("item", JSON.stringify(result));
-        // setUser(result);
         console.log(result);
         navigate("/home");
       }
     } else {
       alert("The course must contain at least one lesson");
     }
-    // }
   };
-
-  // const handleIdChange = (e) => {
-  //   setItemid(e.target.value);
-  // };
 
   const handletypeChange = (e) => {
     setItemType(e.target.value);
@@ -159,17 +151,7 @@ const CreateCourse = (props) => {
 
   return (
     <div className="create-cours-page">
-      <Typography className={classes.title}>Create Course</Typography>
-      {/* <TextField
-        className={classes.field}
-        id="item id"
-        required
-        label="Enter id"
-        placeholder="1079"
-        value={itemid}
-        onChange={handleIdChange}
-        // onKeyDown={handleKeyDown}
-      /> */}
+      <Typography className={classes.title}>Create A New Course</Typography>
       <TextField
         className={classes.field}
         id="item type"
@@ -178,7 +160,6 @@ const CreateCourse = (props) => {
         placeholder="tas"
         value={itemType}
         onChange={handletypeChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -188,7 +169,6 @@ const CreateCourse = (props) => {
         placeholder="name"
         value={name}
         onChange={handleNameChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -198,7 +178,6 @@ const CreateCourse = (props) => {
         placeholder="tod"
         value={typeOfDance}
         onChange={handlTypeOfDanceChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -208,7 +187,6 @@ const CreateCourse = (props) => {
         placeholder="tas"
         value={itemImg}
         onChange={handleitemImgChange}
-        // onKeyDown={handleKeyDown}
       />
       <TextField
         className={classes.field}
@@ -218,7 +196,6 @@ const CreateCourse = (props) => {
         placeholder="wh"
         value={workingHours}
         onChange={handleWorkingHoursChange}
-        // onKeyDown={handleKeyDown}
       />
 
       <TextField
@@ -229,7 +206,6 @@ const CreateCourse = (props) => {
         placeholder="description"
         value={description}
         onChange={handleDescriptionChange}
-        // onKeyDown={handleKeyDown}
       />
 
       <div>

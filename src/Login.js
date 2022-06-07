@@ -63,13 +63,16 @@ const Login = (props) => {
         setTempUser(res);
         setUser(res.data);
         navigate("/userprofile");
-      });
+      })
+      .catch((err) =>
+        alert("User don't exists!\nPlease Enter different details!")
+      );
   };
 
   return (
-    <div id="login-component" className="login-border">
-      <div id="fields-wrapper" className="login-style">
-        <Typography className={classes.title}>
+    <div id="login-component" className="login-border" style={{ padding: 6, marginTop: 0 }}>
+      <div id="fields-wrapper" className="login-style" style={{ padding:4, marginBottom:0 }}>
+        <Typography className={classes.title} style={{ marginTop: 4}}>
           Login to your account:
         </Typography>
         <TextField
